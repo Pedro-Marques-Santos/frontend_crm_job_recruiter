@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import StyledComponentsRegistry from "./styledcomponentsregistry";
 import { GlobalStyle } from "@/styles/global";
-
-const inter = Inter({ subsets: ["latin"] });
+import { fontroboto } from "@/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={fontroboto.className}>
         <StyledComponentsRegistry>
           {children}
           <GlobalStyle />

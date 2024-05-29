@@ -67,12 +67,12 @@ export function Sidebar({ stateSidebar }: ISidebar) {
             </Icon>
             Premium version
           </LinkMenu>
-          <LinkMenu $isActivity={false}>
+          {/* <LinkMenu $isActivity={false}>
             <Icon>
               <CiMail size={33} />
             </Icon>
             Profile
-          </LinkMenu>
+          </LinkMenu> */}
           <LinkMenu $isActivity={true}>
             <Icon>
               <LiaBellSolid size={33} />

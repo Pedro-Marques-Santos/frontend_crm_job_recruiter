@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 import {
   Container,
   Icon,
@@ -17,6 +18,11 @@ interface IFormRegisterContentStepBusiness {
 export function FormRegisterContentStepBusiness({
   typeFormContentStepTwo,
 }: IFormRegisterContentStepBusiness) {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <>
       {typeFormContentStepTwo === "business" && (
@@ -29,19 +35,41 @@ export function FormRegisterContentStepBusiness({
             <InputContent>
               <InputContainer>
                 <InputName>Company Name</InputName>
-                <input type="text" name="name" id="" placeholder="company" />
+                <input
+                  type="text"
+                  id=""
+                  placeholder="company"
+                  {...register("companyname", { required: true })}
+                />
                 <Icon>
                   <IoPersonOutline color="gray" size={19} />
                 </Icon>
-                <Error>This field is mandatory!</Error>
+                <Error $stateError={errors.companyname ? true : false}>
+                  {errors.companyname ? "This field is mandatory" : "ERROR"}
+                </Error>
               </InputContainer>
               <InputContainer>
-                <InputName>Account manager name</InputName>
-                <input type="text" name="lastname" id="" placeholder="name" />
+                <InputName>E-mail</InputName>
+                <input
+                  type="text"
+                  id=""
+                  placeholder="email"
+                  {...register("emailCompany", {
+                    required: "This field is mandatory",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Invalid email address",
+                    },
+                  })}
+                />
                 <Icon>
                   <PiUserFocusThin color="gray" size={25} />
                 </Icon>
-                <Error>This field is mandatory!</Error>
+                <Error $stateError={errors.emailCompany ? true : false}>
+                  {errors.emailCompany
+                    ? (errors.emailCompany.message as string)
+                    : "ERROR"}
+                </Error>
               </InputContainer>
             </InputContent>
           </form>

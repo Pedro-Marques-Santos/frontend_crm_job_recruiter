@@ -32,15 +32,29 @@ export const Container = styled.div`
   }
 `;
 
-export const Error = styled.div`
+interface IError {
+  $stateError: boolean;
+}
+
+export const Error = styled.div<IError>`
   margin-top: 4px;
   font-size: 12px;
-  color: transparent;
+  color: ${({ $stateError }) => ($stateError ? "red" : "transparent")};
 `;
 
-export const ErrorDescription = styled.div`
+export const ErrorDescription = styled.div<IError>`
   font-size: 12px;
-  color: transparent;
+  color: ${({ $stateError }) => ($stateError ? "red" : "transparent")};
+`;
+
+export const ErrorLinkedin = styled.div<IError>`
+  margin-top: 6.3px;
+
+  font-size: 12px;
+  color: ${({ $stateError }) => ($stateError ? "red" : "transparent")};
+  @media (max-width: 600px) {
+    margin-top: 4px;
+  }
 `;
 
 export const InputName = styled.div`
@@ -63,6 +77,13 @@ export const InputContent = styled.div`
   gap: 5px;
 `;
 
+export const InputContainerDateAndLinkedin = styled.div`
+  width: calc(50% - 5px);
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
 export const InputContainer = styled.div`
   margin-top: 12px;
   position: relative;
@@ -80,11 +101,6 @@ export const InputContainer = styled.div`
     background: var(--white-500);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  }
-  @media (max-width: 600px) {
-    /* &:first-child {
-      margin-bottom: 10px;
-    } */
   }
 
   @media (max-width: 600px) {

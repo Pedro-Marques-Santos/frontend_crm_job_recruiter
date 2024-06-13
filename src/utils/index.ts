@@ -9,13 +9,13 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyB59vAYMQIvwDJ1l8DNL2GR8eHdR8Pca9w",
-  authDomain: "projeto-authentication.firebaseapp.com",
-  projectId: "projeto-authentication",
-  storageBucket: "projeto-authentication.appspot.com",
-  messagingSenderId: "442023954654",
-  appId: "1:442023954654:web:231119a4d40afd27d5da4f",
-  measurementId: "G-JEQZLJ5H36",
+  apiKey: "AIzaSyD7auFA1ylSp7rys_vNkoNaCee2obURTcs",
+  authDomain: "projet-crm-firebase.firebaseapp.com",
+  projectId: "projet-crm-firebase",
+  storageBucket: "projet-crm-firebase.appspot.com",
+  messagingSenderId: "330944654164",
+  appId: "1:330944654164:web:48c9f6a5960d90eabb36c1",
+  measurementId: "G-N5MPNS0R5W",
 };
 
 // Initialize Firebase

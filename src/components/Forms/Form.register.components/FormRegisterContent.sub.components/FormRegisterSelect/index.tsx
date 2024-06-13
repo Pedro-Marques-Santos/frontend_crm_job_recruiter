@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 import { ButtonBack, ButtonNext, Container } from "./styles";
 
 interface IFormRegisterSelect {
@@ -11,6 +12,15 @@ export function FormRegisterSelect({
   buttonBackSelectOption,
   stateStepperOption,
 }: IFormRegisterSelect) {
+  const { trigger } = useFormContext();
+
+  const handleNextClick = async () => {
+    const isValid = await trigger();
+    if (isValid) {
+      buttonNextSelectOption();
+    }
+  };
+
   return (
     <Container $stateStepperOption={stateStepperOption}>
       <ButtonBack
@@ -19,7 +29,7 @@ export function FormRegisterSelect({
       >
         Previous step
       </ButtonBack>
-      <ButtonNext onClick={buttonNextSelectOption}>
+      <ButtonNext onClick={handleNextClick} type="button">
         {stateStepperOption === 3 ? "Finish" : "Next step"}
       </ButtonNext>
     </Container>

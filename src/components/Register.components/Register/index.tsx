@@ -2,15 +2,21 @@
 
 import { FormRegister } from "@/components/Forms/Form.register.components/FormRegister";
 import { RegisterImg } from "../RegisterImg";
-import { Container, ContentContainer } from "./styles";
+import { Container, Content, ContentContainer } from "./styles";
 
-export function Register() {
+interface IRegister {
+  idtoken: string;
+}
+
+export function Register({ idtoken }: IRegister) {
   return (
-    <ContentContainer>
-      <Container>
-        <RegisterImg />
-        <FormRegister />
-      </Container>
-    </ContentContainer>
+    <Content>
+      <ContentContainer>
+        <Container>
+          <RegisterImg />
+          <FormRegister idtoken={idtoken} />
+        </Container>
+      </ContentContainer>
+    </Content>
   );
 }

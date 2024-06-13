@@ -8,12 +8,16 @@ interface IFormRegisterContent {
   stateStepperOption: number;
   changeTypeFormRegister: (type: string) => void;
   typeFormRegister: string;
+  addImagemProfile: (image: File | null) => void;
+  image: File | null;
 }
 
 export function FormRegisterContent({
   stateStepperOption,
   changeTypeFormRegister,
   typeFormRegister,
+  addImagemProfile,
+  image,
 }: IFormRegisterContent) {
   return (
     <Container>
@@ -28,7 +32,9 @@ export function FormRegisterContent({
       )}
       {stateStepperOption === 2 && (
         <FormRegisterContentStepThree
+          addImagemProfile={addImagemProfile}
           typeFormContentStepThree={typeFormRegister}
+          image={image}
         />
       )}
       {stateStepperOption === 3 && <FormRegisterContentStepFour />}

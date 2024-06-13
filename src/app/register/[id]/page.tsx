@@ -4,12 +4,11 @@ import { Register } from "@/components/Register.components/Register";
 import { redirect } from "next/navigation";
 
 export default function Home({ params }: { params: { id: string } }) {
-  const id = params.id;
+  const idtoken = params.id;
 
-  if (!id || id.length < 1190) {
-    console.log(id.length);
+  if (!idtoken) {
     redirect(`/login`);
   }
 
-  return <Register />;
+  return <Register idtoken={idtoken} />;
 }

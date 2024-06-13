@@ -6,13 +6,12 @@ export function MainInformation() {
     <Container>
       <Imgprofile />
       <Information>
-        <h4>Name: Pedro</h4>
-        <h4>lastname: Santos</h4>
-        <h4>Date of birth: 30/07/2002</h4>
+        <h4>Pedro Marques</h4>
+        <h4>30/07/2002</h4>
       </Information>
       <SeconduryInformation>
-        <h3>E-mail: pedromarquesnoot@outlook.com</h3>
-        <h3>LinkedIn: www.linkedin.com/in/pedromarques01</h3>
+        <h3>pedromarquesnoot@outlook.com</h3>
+        <h3>www.linkedin.com/in/pedromarques01</h3>
       </SeconduryInformation>
     </Container>
   );

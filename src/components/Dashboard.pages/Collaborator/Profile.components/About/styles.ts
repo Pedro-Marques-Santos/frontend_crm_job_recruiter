@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   height: 100%;
   background: var(--white-500);
   padding: 20px;
@@ -47,6 +47,12 @@ export const Button = styled.button`
   max-width: 180px;
   height: 45px;
   color: var(--white-500);
-  background: var(--purple-650);
-  border: 2px solid var(--purple-700);
+  background: var(--blue-500);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+
+  transition: 0.2s;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+  }
 `;

@@ -2,15 +2,24 @@
 
 import styled from "styled-components";
 
+export const Content = styled.div`
+  background: var(--gray-100);
+  height: 100vh;
+  @media (max-width: 600px) {
+    height: auto;
+    min-height: 100vh;
+  }
+`;
+
 export const ContentContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-height: 660px) and (max-width: 500px) {
-    justify-content: start;
+  @media (max-width: 600px) {
     align-items: start;
+    min-height: 100vh;
   }
   background: var(--gray-100);
 `;
@@ -24,8 +33,9 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-
+  background: var(--gray-100);
   @media (max-width: 900px) {
-    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `;

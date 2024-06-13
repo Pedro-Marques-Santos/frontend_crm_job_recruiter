@@ -81,3 +81,13 @@ export const ContentProfile = styled.div`
     }
   }
 `;
+
+interface IError {
+  $stateError: boolean;
+}
+
+export const Error = styled.div<IError>`
+  margin-top: 2px;
+  font-size: 12px;
+  color: ${({ $stateError }) => ($stateError ? "red" : "transparent")};
+`;

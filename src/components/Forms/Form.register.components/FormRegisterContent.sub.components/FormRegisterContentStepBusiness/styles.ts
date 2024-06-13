@@ -16,10 +16,14 @@ export const Container = styled.div`
   }
 `;
 
-export const Error = styled.div`
+interface IError {
+  $stateError: boolean;
+}
+
+export const Error = styled.div<IError>`
   margin-top: 4px;
   font-size: 12px;
-  color: transparent;
+  color: ${({ $stateError }) => ($stateError ? "red" : "transparent")};
 `;
 
 export const InputName = styled.div`

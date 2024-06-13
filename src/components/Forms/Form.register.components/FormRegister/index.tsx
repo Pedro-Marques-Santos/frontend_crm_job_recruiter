@@ -7,15 +7,40 @@ import { FormRegisterSelect } from "../FormRegisterContent.sub.components/FormRe
 import { FormRegisterStepper } from "../FormRegisterContent.sub.components/FormRegisterStepper";
 import { Container, LineGray } from "./styles";
 
-export function FormRegister() {
+import { FormProvider, useForm } from "react-hook-form";
+import { CustomApplicationResource } from "../CustomAplicationResouve";
+
+interface IFormRegister {
+  idtoken: string;
+}
+
+export function FormRegister({ idtoken }: IFormRegister) {
   const [typeFormRegister, setTypeFormRegister] = useState("business");
   const [stateStepperOption, setStateStepperOption] = useState(0);
 
-  const buttonNextSelectOption = () => {
-    if (typeFormRegister === "business" || typeFormRegister === "collaborator")
+  const [image, setImage] = useState<File | null>(null);
+
+  const DEFAULT_VALUES: CustomApplicationResource = {
+    nameUser: "",
+    emailUser: "",
+    dataofbirth: "",
+    emailCompany: "",
+    description: "",
+    linkedin: "",
+    companyname: "",
+    image: null,
+    dateOfBirth: null,
+  };
+
+  const buttonNextSelectOption = async () => {
+    const isValid = await methods.trigger();
+    if (isValid) {
       if (stateStepperOption < 3) {
         setStateStepperOption(stateStepperOption + 1);
+      } else {
+        methods.handleSubmit((data) => console.log(data))();
       }
+    }
   };
 
   const buttonBackSelectOption = () => {
@@ -28,20 +53,32 @@ export function FormRegister() {
     setTypeFormRegister(type);
   };
 
+  const methods = useForm<CustomApplicationResource>({
+    defaultValues: DEFAULT_VALUES,
+  });
+
+  const addImagemProfile = (image: File | null) => {
+    setImage(image);
+  };
+
   return (
     <Container>
-      <FormRegisterStepper stateStepperOption={stateStepperOption} />
-      <LineGray />
-      <FormRegisterContent
-        typeFormRegister={typeFormRegister}
-        changeTypeFormRegister={changeTypeFormRegister}
-        stateStepperOption={stateStepperOption}
-      />
-      <FormRegisterSelect
-        buttonNextSelectOption={buttonNextSelectOption}
-        buttonBackSelectOption={buttonBackSelectOption}
-        stateStepperOption={stateStepperOption}
-      />
+      <FormProvider {...methods}>
+        <FormRegisterStepper stateStepperOption={stateStepperOption} />
+        <LineGray />
+        <FormRegisterContent
+          typeFormRegister={typeFormRegister}
+          changeTypeFormRegister={changeTypeFormRegister}
+          stateStepperOption={stateStepperOption}
+          addImagemProfile={addImagemProfile}
+          image={image}
+        />
+        <FormRegisterSelect
+          buttonNextSelectOption={buttonNextSelectOption}
+          buttonBackSelectOption={buttonBackSelectOption}
+          stateStepperOption={stateStepperOption}
+        />
+      </FormProvider>
     </Container>
   );
 }

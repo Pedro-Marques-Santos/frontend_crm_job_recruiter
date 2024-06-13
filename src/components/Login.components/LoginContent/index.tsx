@@ -37,7 +37,6 @@ export function LoginContent() {
       );
 
       if (!response.ok) {
-        // Se a resposta não estiver ok, lançar um erro com a mensagem de status
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 

@@ -26,7 +26,7 @@ export function LoginContent() {
   async function fetchAuthenticationGoogle(token: string) {
     try {
       const response = await fetch(
-        "http://localhost:9999/googleAuthentication",
+        `${process.env.NEXT_PUBLIC_DB_HOST}googleAuthentication`,
         {
           method: "POST",
           headers: {
@@ -42,10 +42,14 @@ export function LoginContent() {
 
       const result = await response.json();
 
+      console.log(response);
+
       if (result.status === "noRegister") {
         router.push(`/register/${token}`);
+      } else {
+        localStorage.setItem("token", JSON.stringify(token));
+        router.push(`/`);
       }
-      console.log(result);
     } catch (e) {
       console.log("Error during fetch:", e);
     }

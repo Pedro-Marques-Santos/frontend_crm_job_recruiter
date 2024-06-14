@@ -47,21 +47,23 @@ export default function CheckboxesTags() {
               multiple
               id="checkboxes-tags-demo"
               options={namesOfJobs}
-              getOptionLabel={(option) => option.title}
-              isOptionEqualToValue={(option, value) =>
-                option.title === value.title
-              }
-              renderOption={(props, option, { selected }) => (
-                <li {...props}>
-                  <Checkbox
-                    icon={icon}
-                    checkedIcon={checkedIcon}
-                    style={{ marginRight: 8 }}
-                    checked={selected}
-                  />
-                  {option.title}
-                </li>
-              )}
+              getOptionLabel={(option) => option}
+              isOptionEqualToValue={(option, value) => option === value}
+              renderOption={(props, option, { selected }) => {
+                const index = namesOfJobs.indexOf(option); // Obtenha o índice do item atual
+                return (
+                  <li {...props} key={index}>
+                    <Checkbox
+                      key={index}
+                      icon={icon}
+                      checkedIcon={checkedIcon}
+                      style={{ marginRight: 8 }}
+                      checked={selected}
+                    />
+                    {option}
+                  </li>
+                );
+              }}
               style={{ width: "100%" }}
               onChange={(event, value) => field.onChange(value)}
               value={field.value || []} // Garanta que o valor seja sempre uma array

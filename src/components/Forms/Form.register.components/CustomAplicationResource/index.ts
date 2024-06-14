@@ -6,8 +6,8 @@ interface CustomApplicationResource {
   emailCompany: string;
   emailUser: string;
   linkedin: string;
-  dataofbirth: string;
   description: string;
+  SelectedJobs: string[];
   image: File | null;
   dateOfBirth: Dayjs | null;
 }

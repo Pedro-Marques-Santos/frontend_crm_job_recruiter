@@ -1,15 +1,16 @@
 import { About } from "../About";
 import { MainInformation } from "../MainInformation";
-import { Container, ContentContainer } from "./stytles";
+import { Button, Container, ContentContainer } from "./stytles";
 
 export function Profile() {
   return (
     <Container>
-      <h1>Profile</h1>
+      <h5>Profile</h5>
       <ContentContainer>
         <MainInformation />
         <About />
       </ContentContainer>
+      <Button>Edit profile</Button>
     </Container>
   );
 }

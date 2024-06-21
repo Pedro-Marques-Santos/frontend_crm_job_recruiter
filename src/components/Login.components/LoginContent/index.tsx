@@ -2,13 +2,16 @@
 
 import { SelectLanguage } from "@/components/Selectlanguage";
 import { Button, Container, Icon, SelectLanguageWidth } from "./styles";
-
+import { useDispatch, useSelector } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithGooglePopup } from "@/utils";
-
+import { setToken } from "@/store/slices/auth";
 import { useRouter } from "next/navigation";
+import { useLoginUserMutation } from "@/store/slices/user";
 
 export function LoginContent() {
+  const [loginUser] = useLoginUserMutation();
+  const dispatch = useDispatch();
   const router = useRouter();
 
   async function loginWithGoogle() {
@@ -42,12 +45,14 @@ export function LoginContent() {
 
       const result = await response.json();
 
-      console.log(response);
+      // console.log(response);
 
       if (result.status === "noRegister") {
         router.push(`/register/${token}`);
       } else {
-        localStorage.setItem("token", JSON.stringify(token));
+        dispatch(setToken(token));
+        localStorage.setItem("token", token);
+        // await loginUser();
         router.push(`/`);
       }
     } catch (e) {

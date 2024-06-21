@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 `;
 
 export const ContentContainer = styled.div`
@@ -10,6 +11,7 @@ export const ContentContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
   max-width: 500px;
   height: 100%;
@@ -30,6 +32,8 @@ export const ContentGroup = styled.div`
 `;
 
 export const MainInformation = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 12px;
   h1 {
     font-size: 16px;
@@ -38,6 +42,7 @@ export const MainInformation = styled.div`
       font-weight: 500;
     }
   }
+  word-break: break-word;
 `;
 
 export const Group = styled.span`

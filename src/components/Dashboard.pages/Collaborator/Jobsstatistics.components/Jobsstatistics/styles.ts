@@ -11,4 +11,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
   margin-top: 45px;
   display: flex;
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
 `;

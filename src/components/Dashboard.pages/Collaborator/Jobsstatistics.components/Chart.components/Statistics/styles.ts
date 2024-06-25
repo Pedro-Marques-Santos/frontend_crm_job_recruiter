@@ -11,4 +11,7 @@ export const ChartWrapper = styled.div`
   width: 100%;
   max-width: 520px;
   height: 300px;
+  @media (max-width: 900px) {
+    max-width: 1000px;
+  }
 `;

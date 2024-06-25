@@ -10,23 +10,27 @@ import {
 
 import Image from "next/image";
 
-import { MdDashboard } from "react-icons/md";
-import { CiGlobe } from "react-icons/ci";
-import { BsFillPersonFill } from "react-icons/bs";
-import { BsCalendar2Check } from "react-icons/bs";
-import { CiMail } from "react-icons/ci";
-import { BsFillBarChartFill } from "react-icons/bs";
-import { LiaBellSolid } from "react-icons/lia";
+// import { MdDashboard } from "react-icons/md";
+// import { CiGlobe } from "react-icons/ci";
+// import { BsFillPersonFill } from "react-icons/bs";
+// import { BsCalendar2Check } from "react-icons/bs";
+// import { CiMail } from "react-icons/ci";
+// import { BsFillBarChartFill } from "react-icons/bs";
+// import { LiaBellSolid } from "react-icons/lia";
 
 import imglogo from "@/images/logoeasyrecruiter2.png";
 import { Proversion } from "../Proversion";
 import { Userprofile } from "../Userprofile";
+import { useAppSelector } from "@/store";
+import { SidebarCollaborator } from "./collaborator";
 
 interface ISidebar {
   stateSidebar: boolean;
 }
 
 export function Sidebar({ stateSidebar }: ISidebar) {
+  const sidebarState = useAppSelector((state) => state.sidebar.isRecruiter);
+
   return (
     <Container $stateSidebar={stateSidebar}>
       <ContainerLogoAndMenu>
@@ -37,48 +41,11 @@ export function Sidebar({ stateSidebar }: ISidebar) {
           </h4>
         </ContentLogo>
         <ContentMenu>
-          <LinkMenu $isActivity={false}>
-            <Icon>
-              <MdDashboard size={33} />
-            </Icon>
-            My journey
-          </LinkMenu>
-          <LinkMenu $isActivity={false}>
-            <Icon>
-              <BsCalendar2Check size={28} />
-            </Icon>
-            Applied vacancies
-          </LinkMenu>
-          <LinkMenu $isActivity={false}>
-            <Icon>
-              <CiGlobe size={33} />
-            </Icon>
-            Look for a job
-          </LinkMenu>
-          <LinkMenu $isActivity={false}>
-            <Icon>
-              <BsFillPersonFill size={32} />
-            </Icon>
-            Profile
-          </LinkMenu>
-          <LinkMenu $isActivity={false}>
-            <Icon>
-              <BsFillBarChartFill size={33} />
-            </Icon>
-            Premium version
-          </LinkMenu>
-          {/* <LinkMenu $isActivity={false}>
-            <Icon>
-              <CiMail size={33} />
-            </Icon>
-            Profile
-          </LinkMenu> */}
-          <LinkMenu $isActivity={true}>
-            <Icon>
-              <LiaBellSolid size={33} />
-            </Icon>
-            Suporte
-          </LinkMenu>
+          {sidebarState !== null && sidebarState !== undefined ? (
+            <>
+              <SidebarCollaborator sidebarState={sidebarState} />
+            </>
+          ) : null}
         </ContentMenu>
       </ContainerLogoAndMenu>
       <ContainerUpgrade>

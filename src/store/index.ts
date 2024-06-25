@@ -4,9 +4,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useSelector, TypedUseSelectorHook, useDispatch } from "react-redux";
 import { userApi, userReducer } from "./slices/user";
 import { authReducer } from "./slices/auth";
+import { sidebarReducer } from "./slices/sidebar";
 
 export const store = configureStore({
   reducer: {
+    sidebar: sidebarReducer,
     auth: authReducer,
     user: userReducer,
     [userApi.reducerPath]: userApi.reducer,

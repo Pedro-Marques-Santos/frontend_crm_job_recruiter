@@ -1,5 +1,6 @@
 import { Chart } from "../Chart.components/Chart";
 import { Informations } from "../Informations";
+import { Ongoingvanacies } from "../Ongoingvacancies";
 import { Container, ContentContainer } from "./styles";
 
 export function Jobsstatistics() {
@@ -9,6 +10,7 @@ export function Jobsstatistics() {
       <Informations />
       <ContentContainer>
         <Chart />
+        <Ongoingvanacies />
       </ContentContainer>
     </Container>
   );

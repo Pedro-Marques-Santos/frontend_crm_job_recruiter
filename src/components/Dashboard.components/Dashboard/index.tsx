@@ -11,6 +11,7 @@ import { Sidebar } from "../Sidebar.components/Sidebar";
 import { setToken } from "@/store/slices/auth";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { useLoginUserMutation, setUser } from "@/store/slices/user";
+import { setSidebarIsRecruiter } from "@/store/slices/sidebar";
 
 export function Dashboard() {
   const [loginUser, { data: user, isLoading, data, error }] =
@@ -33,6 +34,7 @@ export function Dashboard() {
         const result = await loginUser();
         if (result.data) {
           dispatch(setUser(result.data));
+          dispatch(setSidebarIsRecruiter(result.data.status.isRecruiter));
         }
       }
     };

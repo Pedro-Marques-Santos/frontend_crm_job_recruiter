@@ -44,7 +44,12 @@ export function SidebarCollaborator({ sidebarState }: ISidebar) {
             </Icon>
             Applied vacancies
           </LinkMenu>
-          <LinkMenu $isActivity={false}>
+          <LinkMenu
+            $isActivity={currentPage === "lookforjob" ? true : false}
+            onClick={() => {
+              dispatch(setSidebarCurrentPage("lookforjob"));
+            }}
+          >
             <Icon>
               <CiGlobe size={33} />
             </Icon>

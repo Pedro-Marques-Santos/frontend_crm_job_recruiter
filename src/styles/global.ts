@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     --purple-600: #4b3ebb;
     --white-500: #ffffff;
     --blue-500: #0064E1;
+    --blue-600: #055ac5;
   } 
   * {
       margin: 0;

@@ -57,16 +57,16 @@ export const TableInProgress = styled.div`
   max-height: 224px;
 
   &::-webkit-scrollbar {
-    width: 6px; /* Largura do scrollbar */
-    height: 6px; /* Altura do scrollbar horizontal, se necessário */
+    width: 6px;
+    height: 6px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--gray-400); /* Cor do thumb (indicador do scroll) */
+    background-color: var(--gray-400);
   }
 
   &::-webkit-scrollbar-track {
-    background-color: var(--gray-020); /* Cor do track (trilho) */
+    background-color: var(--gray-020);
   }
 `;
 

@@ -5,6 +5,7 @@ import { Appliedvacancies } from "@/components/Dashboard.pages/Collaborator/Appl
 import { Profile } from "@/components/Dashboard.pages/Collaborator/Profile.components/Profile";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { useEffect } from "react";
+import { Lookforjob } from "@/components/Dashboard.pages/Collaborator/Lookforjob.components/Lookforjob";
 
 interface IDashboardContent {
   modifyStatesidebar: () => void;
@@ -40,6 +41,11 @@ export function DashboardContent({
               {currentPage === "profile" && (
                 <>
                   <Profile />
+                </>
+              )}
+              {currentPage === "lookforjob" && (
+                <>
+                  <Lookforjob />
                 </>
               )}
             </>
